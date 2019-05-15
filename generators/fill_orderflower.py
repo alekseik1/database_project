@@ -3,7 +3,7 @@ from config import MainConfig as config
 import random as r
 
 
-def fill_flowers():
+def fill_orderflowers():
     db = MySQLdb.connect(host=config.DB_HOST, user=config.DB_USER,
                          passwd=config.DB_PASSWORD, db=config.DB_NAME)
     cursor = db.cursor()
@@ -27,4 +27,4 @@ def fill_flowers():
 
 
 if __name__ == '__main__':
-    fill_flowers()
+    fill_orderflowers()
