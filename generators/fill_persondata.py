@@ -5,12 +5,12 @@ from mimesis import Person, Datetime
 
 def fill_persondata(cursor):
     # Zero client, anon
-    c.execute("""INSERT INTO PersonData (first_name, last_name, birth_date, email, mobile, gender) VALUES (%s, %s, %s, %s,
+    cursor.execute("""INSERT INTO PersonData (first_name, last_name, birth_date, email, mobile, gender) VALUES (%s, %s, %s, %s,
             %s, %s);""",
               ['anon', 'anon', Datetime().date(), None, None, None])
     for _ in range(config.N_PERSONS):
         p = Person('ru')
-        c.execute("""INSERT INTO PersonData (first_name, last_name, birth_date, email, mobile, gender) VALUES (%s, %s, %s,
+        cursor.execute("""INSERT INTO PersonData (first_name, last_name, birth_date, email, mobile, gender) VALUES (%s, %s, %s,
                 %s, %s, %s);""", [
             p.name(), p.surname(), Datetime().date(),
             p.email(), p.telephone('#'*11),
