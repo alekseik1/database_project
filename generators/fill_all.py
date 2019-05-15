@@ -9,17 +9,10 @@ from fill_users import fill_users
 from fill_orders import fill_orders
 
 if __name__ == '__main__':
-    db = MySQLdb.connect(host=config.DB_HOST, user=config.DB_USER,
-                         passwd=config.DB_PASSWORD, db=config.DB_NAME)
-    c = db.cursor()
+    fill_flowers()
+    fill_gifts()
+    fill_persondata()
+    fill_mercants()
+    fill_users()
+    fill_orders()
 
-    fill_flowers(c)
-    fill_gifts(c)
-    fill_persondata(c)
-    fill_mercants(c)
-    fill_users(c)
-    fill_orders(c)
-
-    db.commit()
-    c.close()
-    db.close()
