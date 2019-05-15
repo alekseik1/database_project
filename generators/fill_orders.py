@@ -4,7 +4,11 @@ import random as r
 from mimesis import Datetime
 
 
-def fill_orders(cursor):
+def fill_orders():
+    db = MySQLdb.connect(host=config.DB_HOST, user=config.DB_USER,
+                         passwd=config.DB_PASSWORD, db=config.DB_NAME)
+    cursor = db.cursor()
+
     for i in range(60):
         print(i)
         cursor.execute("""
@@ -18,12 +22,10 @@ def fill_orders(cursor):
             ]
         )
 
+    db.commit()
+    cursor.close()
+    db.close()
+
 
 if __name__ == '__main__':
-    db = MySQLdb.connect(host=config.DB_HOST, user=config.DB_USER,
-                         passwd=config.DB_PASSWORD, db=config.DB_NAME)
-    c = db.cursor()
-    fill_orders(c)
-    db.commit()
-    c.close()
-    db.close()
+    fill_orders()
