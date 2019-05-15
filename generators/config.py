@@ -7,4 +7,3 @@ class MainConfig:
     N_PERSONS = 150
     MERCHANT_IDS = list(range(2, 10))
     USER_IDS = list(range(10, N_PERSONS))
-

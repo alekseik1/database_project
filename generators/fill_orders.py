@@ -1,25 +1,27 @@
 import MySQLdb
 from config import MainConfig as config
-import itertools as it
 import random as r
 from mimesis import Datetime
 
-db = MySQLdb.connect(host=config.DB_HOST, user=config.DB_USER, passwd=config.DB_PASSWORD, db=config.DB_NAME)
-c = db.cursor()
 
-for i in range(60):
-    c.execute("""
-        INSERT INTO `Order` (merchant_id, completed_at, user_id)
-        VALUES (%s, %s, %s);
-    """, [
-        r.choice(config.MERCHANT_IDS),
-        Datetime().datetime(),
-        #r.choice(config.USER_IDS)
-        20
-        ]
-    )
-db.commit()
+def fill_orders(cursor):
+    for i in range(60):
+        cursor.execute("""
+            INSERT INTO `Order` (merchant_id, completed_at, user_id)
+            VALUES (%s, %s, %s);
+        """, [
+                r.choice(config.MERCHANT_IDS),
+                Datetime().datetime(),
+                r.choice(config.USER_IDS)
+            ]
+        )
 
-c.close()
-db.close()
 
+if __name__ == '__main__':
+    db = MySQLdb.connect(host=config.DB_HOST, user=config.DB_USER,
+                         passwd=config.DB_PASSWORD, db=config.DB_NAME)
+    c = db.cursor()
+    fill_orders(c)
+    db.commit()
+    c.close()
+    db.close()
