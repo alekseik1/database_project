@@ -10,7 +10,6 @@ def fill_orders():
     cursor = db.cursor()
 
     for i in range(60):
-        print(i)
         cursor.execute("""
             INSERT INTO `Order` (merchant_id, completed_at, user_id)
             VALUES (%s, %s, %s);
