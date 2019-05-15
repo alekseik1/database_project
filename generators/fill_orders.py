@@ -13,7 +13,8 @@ def fill_orders(cursor):
         """, [
                 r.choice(config.MERCHANT_IDS[:-1]),
                 Datetime().datetime(),
-                r.choice(config.USER_IDS[:-1])
+#                r.choice(config.USER_IDS[:-1])
+                1
             ]
         )
 
