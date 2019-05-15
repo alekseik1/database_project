@@ -9,7 +9,7 @@ def fill_orders():
                          passwd=config.DB_PASSWORD, db=config.DB_NAME)
     cursor = db.cursor()
 
-    for i in range(60):
+    for i in range(config.N_ORDERS):
         print(i)
         cursor.execute("""
             INSERT INTO `Order` (merchant_id, completed_at, user_id)
