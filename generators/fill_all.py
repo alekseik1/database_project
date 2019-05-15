@@ -8,6 +8,7 @@ from fill_merchants import fill_mercants
 from fill_users import fill_users
 from fill_orders import fill_orders
 from fill_orderflower import fill_orderflowers
+from fill_ordergifts import fill_ordergifts
 
 if __name__ == '__main__':
     fill_flowers()
@@ -17,4 +18,4 @@ if __name__ == '__main__':
     fill_users()
     fill_orders()
     fill_orderflowers()
-
+    fill_ordergifts()
