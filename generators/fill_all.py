@@ -1,6 +1,3 @@
-import MySQLdb
-from config import MainConfig as config
-
 from fill_flowers import fill_flowers
 from fill_gifts import fill_gifts
 from fill_persondata import fill_persondata
