@@ -5,7 +5,7 @@ from mimesis import Datetime
 
 
 def fill_users(cursor):
-    for i in range(int(config.N_PERSONS/10) + 2, config.N_PERSONS):
+    for i in config.USER_IDS:
         cursor.execute("""
             INSERT INTO User (info_id, added_at, discount_category, invited_by)
             VALUES (%s, %s, %s, %s);
