@@ -10,14 +10,14 @@ def fill_orders():
     cursor = db.cursor()
 
     for i in range(config.N_ORDERS):
+        user_id = r.choice(range(1, len(config.USER_IDS)))
         cursor.execute("""
             INSERT INTO `Order` (merchant_id, completed_at, user_id)
             VALUES (%s, %s, %s);
         """, [
                 r.choice(config.MERCHANT_IDS[:-1]),
                 Datetime().datetime(start=2018, end=2018),
-#                r.choice(config.USER_IDS[:-1])
-                1
+                user_id
             ]
         )
 
