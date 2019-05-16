@@ -13,7 +13,7 @@ def fill_mercants():
         cursor.execute("""
             INSERT INTO Merchant (info_id, added_at, access_level)
             VALUES (%s, %s, %s);
-        """, [i, Datetime().datetime(), r.randint(0, 3)])
+        """, [i, Datetime().datetime(start=2018, end=2018), r.randint(0, 3)])
 
     db.commit()
     cursor.close()

@@ -15,7 +15,7 @@ def fill_orders():
             VALUES (%s, %s, %s);
         """, [
                 r.choice(config.MERCHANT_IDS[:-1]),
-                Datetime().datetime(),
+                Datetime().datetime(start=2018, end=2018),
 #                r.choice(config.USER_IDS[:-1])
                 1
             ]

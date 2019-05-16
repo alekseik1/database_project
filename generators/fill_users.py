@@ -13,7 +13,7 @@ def fill_users():
         cursor.execute("""
             INSERT INTO User (info_id, added_at, discount_category, invited_by)
             VALUES (%s, %s, %s, %s);
-        """, [i, Datetime().datetime(), r.randint(0, 30), 3])
+        """, [i, Datetime().datetime(start=2018, end=2018), r.randint(0, 30), 3])
 
     db.commit()
     cursor.close()
