@@ -13,7 +13,7 @@ CREATE TABLE `OrderFlower`
 (
   `order_id` int,
   `flower_id` int,
-  `quantity` int NOT NULL,
+  `quantity` int NOT NULL
 );
 
 CREATE TABLE `Gift`
@@ -24,12 +24,12 @@ CREATE TABLE `Gift`
   `available` int NOT NULL
 );
 
-#CREATE TABLE `OrderGift`
-#(
-#  `order_id` int,
-#  `gift_id` int,
-#  `quantity` int NOT NULL,
-#);
+CREATE TABLE `OrderGift`
+(
+  `order_id` int,
+  `gift_id` int,
+  `quantity` int NOT NULL
+);
 
 CREATE TABLE `Merchant`
 (
@@ -71,9 +71,9 @@ ALTER TABLE `OrderFlower` ADD FOREIGN KEY (`order_id`) REFERENCES `Order` (`id`)
 
 ALTER TABLE `OrderFlower` ADD FOREIGN KEY (`flower_id`) REFERENCES `Flower` (`id`);
 
-#ALTER TABLE `OrderGift` ADD FOREIGN KEY (`order_id`) REFERENCES `Order` (`id`);
+ALTER TABLE `OrderGift` ADD FOREIGN KEY (`order_id`) REFERENCES `Order` (`id`);
 
-#ALTER TABLE `OrderGift` ADD FOREIGN KEY (`gift_id`) REFERENCES `Gift` (`id`);
+ALTER TABLE `OrderGift` ADD FOREIGN KEY (`gift_id`) REFERENCES `Gift` (`id`);
 
 ALTER TABLE `Merchant` ADD FOREIGN KEY (`info_id`) REFERENCES `PersonData` (`id`);
 
