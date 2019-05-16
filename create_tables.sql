@@ -44,7 +44,8 @@ CREATE TABLE `Order`
   `id` int AUTO_INCREMENT PRIMARY KEY,
   `merchant_id` int,
   `completed_at` datetime,
-  `user_id` int
+  `user_id` int,
+  `total_sum` int
 );
 
 CREATE TABLE `User`
