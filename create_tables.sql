@@ -21,7 +21,8 @@ CREATE TABLE `Gift`
   `id` int AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(255) UNIQUE NOT NULL,
   `current_price` int NOT NULL,
-  `available` int NOT NULL
+  `available` int NOT NULL,
+  INDEX (id)
 );
 
 CREATE TABLE `OrderGift`
@@ -36,7 +37,8 @@ CREATE TABLE `Merchant`
   `id` int AUTO_INCREMENT PRIMARY KEY,
   `info_id` int,
   `added_at` datetime NOT NULL,
-  `access_level` int NOT NULL
+  `access_level` int NOT NULL,
+  INDEX (id)
 );
 
 CREATE TABLE `Order`
@@ -45,7 +47,8 @@ CREATE TABLE `Order`
   `merchant_id` int,
   `completed_at` datetime,
   `user_id` int,
-  `total_sum` int
+  `total_sum` int,
+  INDEX (id)
 );
 
 CREATE TABLE `User`
@@ -54,7 +57,8 @@ CREATE TABLE `User`
   `info_id` int,
   `added_at` datetime NOT NULL,
   `discount_category` int NOT NULL,
-  `invited_by` int
+  `invited_by` int,
+  INDEX (id)
 );
 
 CREATE TABLE `PersonData`
@@ -65,7 +69,8 @@ CREATE TABLE `PersonData`
   `birth_date` date NOT NULL,
   `email` varchar(255) UNIQUE,
   `mobile` bigint UNIQUE,
-  `gender` varchar(1)
+  `gender` varchar(1),
+  INDEX (id)
 );
 
 ALTER TABLE `OrderFlower` ADD FOREIGN KEY (`order_id`) REFERENCES `Order` (`id`);
