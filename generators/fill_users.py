@@ -10,10 +10,11 @@ def fill_users():
     cursor = db.cursor()
 
     for i in config.USER_IDS:
+        merchant_ids = list(range(1, len(config.MERCHANT_IDS)))
         cursor.execute("""
             INSERT INTO User (info_id, added_at, discount_category, invited_by)
             VALUES (%s, %s, %s, %s);
-        """, [i, Datetime().datetime(start=2018, end=2018), r.randint(0, 30), 3])
+        """, [i, Datetime().datetime(start=2018, end=2018), r.randint(0, 30), r.choice(merchant_ids)])
 
     db.commit()
     cursor.close()
